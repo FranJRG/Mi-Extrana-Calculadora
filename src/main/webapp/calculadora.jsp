@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-  
+<%@ page import="utility.Calcular"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,32 +12,62 @@
 	
 	<h1>MI EXTRAÑA CALCULADORA</h1>
 	
-	<%
-			
-		String operador = request.getParameter("operando");
-		String valor = request.getParameter("valor");
-		String valores = request.getParameter("valores");
-		double resultado=0;	
-		
-		if(valores==null){
-			valores="";
-		}
-		
-		if(operador!=null && valor!=null){
-			valores += operador + valor;
-		}
-			
-			
-		if(request.getParameter("eliminar")!=null){
-			valores="";
-		}
-		
-		
+	<%!
+	
+		double fin = 0;  
+	
 	%>
+	
+	
+	<%
+	
+				try{
+					
+					
+					String operador = request.getParameter("operando");
+					String valor = request.getParameter("valor");
+					String valores = request.getParameter("valores");
+					double resultado=0;	
+					
+					if(valores==null){
+						valores="Valor introducido no disponible";
+					}
+					
+					if(operador!=null && valor!=null){
+						valores +=  valor + operador;
+					}
+				
+				
+					if(request.getParameter("eliminar")!=null){
+						valores="";
+					}
+					
+					if(request.getParameter("calcular")!=null){
+				
+						if(valor!=null && operador!=null){
+							
+							Calcular calcu = new Calcular();
+							
+							fin = calcu.resolve(valores);
+							
+							valores += "=" + fin; 
+						}
+				
+					}
+					
+				}catch(Exception e){
+					
+					out.println(e.getLocalizedMessage());
+					
+				}
+	
+				
+				
+		%>
 	<form class="form-control" method="get" action="calculadora.jsp">
 	
 		<div class="form-group">
-			<input type="text" class="form-control" name="valor" placeholder="Introduce los valores deseados">
+			<input type="number" step="any" class="form-control" name="valor" placeholder="Introduce los valores deseados">
 		</div>
 		
 		<br>
@@ -48,6 +78,7 @@
 		<br>
 		
 		<select name="operando">
+			<option selected></option>
 			<option value="+">+</option>
 			<option value="-">-</option>
 		</select> <br>
