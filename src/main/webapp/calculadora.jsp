@@ -20,17 +20,15 @@
 	
 	
 	<%
+				String operador = request.getParameter("operando");
+				String valor = request.getParameter("valor");
+				String valores = request.getParameter("valores");
+				double resultado=0;	
 	
 				try{
 					
-					
-					String operador = request.getParameter("operando");
-					String valor = request.getParameter("valor");
-					String valores = request.getParameter("valores");
-					double resultado=0;	
-					
 					if(valores==null){
-						valores="Valor introducido no disponible";
+						valores="";
 					}
 					
 					if(operador!=null && valor!=null){
