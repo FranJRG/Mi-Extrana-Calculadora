@@ -6,9 +6,52 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>MI EXTRAÑA CALCULADORA</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+<style>
+
+	body{
+		background-color: aqua;
+	}
+
+	.form{
+		margin: 20px;
+		margin-left: 550px;
+		margin-right: 550px;
+		padding: 40px;
+		background-color: #9D9ECF;
+		border-style: solid;
+		border-color: black;
+		border-radius: 20px;
+		box-shadow: 5px 5px 40px;
+	}
+	
+	input{
+		width: 290px;
+		height: 30px;
+	}
+	
+	.eliminar{
+		margin: 10px;
+		padding: 10px;
+		background-color: yellow;
+	}
+	
+	.añadir{
+		margin: 10px;
+		padding: 10px;
+		background-color: alice-blue;
+	}
+	
+	.calcular{
+		margin: 10px;
+		padding: 10px;
+		background-color: grey;
+	}
+	
+</style>
+
 </head>
-<body>
+<body align="center">
 	
 	<h1>MI EXTRAÑA CALCULADORA</h1>
 	
@@ -62,16 +105,15 @@
 				
 				
 		%>
-	<form class="form-control" method="get" action="calculadora.jsp">
+	<form class="form" method="post" action="calculadora.jsp">
 	
-		<div class="form-group">
-			<input type="number" step="any" class="form-control" name="valor" placeholder="Introduce los valores deseados">
-		</div>
+		<textarea name="valores" rows="4" cols="24" placeholder="Aqui se irá mostrando el resultado"><%=valores%></textarea> <br>
 		
 		<br>
-		
-		
-		<textarea name="valores" rows="2" cols="24" placeholder="Introduzca valores"><%=valores%></textarea> <br>
+	
+		<div class="numero">
+			<input type="number" step="any" name="valor" placeholder="Introduce los valores deseados">
+		</div>
 		
 		<br>
 		
@@ -84,11 +126,9 @@
 		
 		<br>
 		
-		<button type="submit" name="añadir" class="btn btn-primary">Añadir valor</button>
-		<button type="submit" name="calcular" class="btn btn-secondary">Calcular</button>
-		<button type="submit" name="eliminar" class="btn btn-warning">Eliminar operacion</button>
+		<button type="submit" name="añadir" class="añadir">Añadir valor</button>
+		<button type="submit" name="calcular" class="calcular">Calcular</button>
+		<button type="submit" name="eliminar" class="eliminar">Eliminar operacion</button>
 	</form>
-	
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>
