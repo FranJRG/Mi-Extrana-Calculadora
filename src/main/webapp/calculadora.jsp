@@ -107,7 +107,7 @@
 		%>
 	<form class="form" method="post" action="calculadora.jsp">
 	
-		<textarea name="valores" rows="4" cols="24" placeholder="Aqui se irá mostrando el resultado"><%=valores%></textarea> <br>
+		<textarea name="valores" readonly="readonly" rows="4" cols="24" placeholder="Aqui se irá mostrando el resultado"><%=valores%></textarea> <br>
 		
 		<br>
 	
