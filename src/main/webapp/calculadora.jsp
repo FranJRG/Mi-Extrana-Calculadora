@@ -70,20 +70,14 @@
 	
 				try{
 					
-					if(valores==null){
-						valores="";
-					}
-					
 					if(operador!=null && valor!=null){
 						valores +=  valor + operador;
 					}
-				
-				
-					if(request.getParameter("eliminar")!=null){
-						valores="";
-					}
 					
-					if(request.getParameter("calcular")!=null){
+					
+					if(request.getParameter("eliminar")!=null || valores==null){
+						valores="";
+					}else if(request.getParameter("calcular")!=null){
 				
 						if(valor!=null && operador!=null){
 							

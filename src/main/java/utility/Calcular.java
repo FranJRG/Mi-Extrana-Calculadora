@@ -8,6 +8,7 @@ public class Calcular {
 		String operador="";
 		
 		for(int i = 0 ; i<cadena.length(); i++) {
+			
 			if(Character.isDigit(cadena.charAt(i)) || cadena.charAt(i)=='.') {
 				almacen += String.valueOf(cadena.charAt(i));
 			}else if(operador.isEmpty() && cadena.charAt(i)!='.') {
